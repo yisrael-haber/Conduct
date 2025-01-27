@@ -15,7 +15,7 @@ if __name__=="__main__":
                 "-t",
                 f"{method}:{args.tag}",
                 "--file",
-                f"./src/{method}/Dockerfile",
+                f"./{method}/Dockerfile",
                 "."
             ], 
             text=True
