@@ -2,11 +2,10 @@ FROM julia:1.10.8-alpine
 WORKDIR /app
 ENV JULIA_PROJECT=/app
 
-COPY *.jl .
-COPY conductor/Project.toml .
-RUN julia init.jl
+COPY conductor/Project.toml . 
+RUN julia -e 'using Pkg; Pkg.instantiate()'
 
 COPY conductor . 
-COPY shared .
+COPY shared ./src/
 
-CMD [ "julia run.jl && sleep infinity" ]
+CMD ["julia -e 'while true sleep(1) end'"]

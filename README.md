@@ -13,3 +13,7 @@ There are many challenges/obstacles that I see that need to be solved before I c
 The architecture that I am aiming for, as of now, will be listed here so that it is clear where are we trying to get to. There are a couple of aspects to the architecture, which are semi-related to eachother: 
 - Architecture of distributed DataFrames. I think that having that the DataFrames abstraction to not be related at all to the workers is the right choice. Maybe have a local `sqlite` DB on each worker describing the sections of the Columns that they hold of the distributed columns. I think the DF abstraction should only really exist on the client and not in any part of the actual calculation.
 - Architecture of the client/conductor/workers.
+
+# TODO:
+- [ ] See if I can get more than one process per worker, currently limited because the workers are started using the `ElasticManager` which calls `init_worker`. `init_worker`, for some reason, asserts that current number of processors is at most 1. This needs to be able to be adjustable, whether in my code or through a PR/MR to `Distributed.jl` or `ClusterManagers.jl`
+- [ ] Get distributed arrays to work. Need to check if `DArrays`/`DTables` are relevant, might need to create own version with lazy option. 
