@@ -1,3 +1,6 @@
 [deps]
 ClusterManagers = "34f1f09b-3a8b-5176-ab39-66d58a4d544e"
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+LazyArrays = "5078a376-72f3-5289-bfd5-ec5146d43c02"
+Parquet2 = "98572fba-bba0-415d-956f-fa77e587d26d"
+TableOperations = "ab02a1b2-a7df-11e8-156e-fb1833f50b87"

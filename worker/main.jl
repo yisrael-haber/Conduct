@@ -1,11 +1,9 @@
-using Distributed, ClusterManagers
+using Distributed, ClusterManagers, DataFrames, Parquet2
 include.(filter(contains(r".jl$"), readdir("src"; join=true)))
 
-@everywhere sleep(10)
+w = @async elastic_worker("a"^16, "conductor")
 
-@everywhere w = @async elastic_worker("a"^16, "conductor")
-
-@everywhere while true 
+while true 
     w|> println
     sleep(5) 
 end

@@ -25,3 +25,6 @@ Manifest.toml
 
 # Local choise to ignore local examples/testing. Maybe will add back in the future
 examples/
+
+# Possible Golang option
+cluster/*
